@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript" src="validar.js" language="javascript">
+		</script>
+		<title>Cadastro de Clientes</title>
+		
+</head>
+			
+	<body>	
+		
+		<form name="cadastro" action=""method="get">
+			<table border = 2>
+				<tr>
+					<th colspan = "2" align = center >Cadastro de Clientes</th>
+				</tr>	
+				<tr>
+					<td>CPF:</td><td><input type = "text"  name = "cpf" size = "14" maxlength = "14" 
+					onkeypress="mascara(this, cpf_mask)" onBlur="inspecionaCPF(cadastro.cpf.value)" placeholder="Digite o numero do cpf"></td>				
+				</tr>
+				<tr>
+					<td>Nome:</td><td><input type = "text"  name = "nome" size = "80" maxlength = "80" 
+					id="billing:firstname" onkeyup="maiuscula('.firstname')" name="billing[firstname]" value="" title="Nome" class="t1 required-entry firstname"onkeypress=" return apenasLetras(event)" placeholder= " Digite o nome">
+					</td>
+				</tr> 
+				<tr>
+					<td>Endereco:</td><td><input type = "text"  name = "endereco" size = "80" maxlength = "80" 			
+					onBlur = "validaCampos(cadastro.endereco.value)" id="billing:firstname" onkeyup="maiuscula('.firstname')" name="billing[firstname]" value="" title="Endereco" class="t1 required-entry firstname"placeholder="Digite o endereco">
+					</td>
+				</tr>
+				<tr>
+					<td>Cidade:</td><td><input type = "text"  name = "cidade" size = "50" maxlength = "50" id="billing:firstname" onkeyup="maiuscula(.firstname')" name="billing[firstname]" value="" title="Cidade" class="t1 required-entry firstname"
+					onBlur ="validaCidade(cadastro.cidade.value)"placeholder=" Digite a cidade">
+					</td>
+				</tr>
+				<tr>
+					<td>Sexo:</td><td><select name="sexo" id="sexo" onBlur="validaSelect(cadastro.sexo.value)"><option>Escolher Sexo</option>
+										                 <option>Masculino</option>
+					                                      <option>Feminino</option></select>
+					</td>
+				</tr>
+				<tr>
+					<td>Telefone:</td><td><input type = "text"  name = "telefone" size = 12 maxlength = 12 OnKeyPress="mascaraTelefone('##-####-####', this)"placeholder="Digite o telefone">
+					</td>
+				</tr>
+				<tr>
+					<td>E-mail(Login):</td><td><input type = "text"  name = "email" onBlur="confirmaEmail()" size = "40" maxlength = "40" placeholder="Digite o email" >
+					</td>
+				</tr>
+				<tr>
+					<td>Senha:</td><td><input type = "password" name = "senha" onblur=validaSenha() placeholder="Digite a senha">
+					</td>
+				</tr>
+				<tr>
+					<td>Receber Promoções:</td><td><input type = "checkbox" name = "sim" VALUE="sim" onclick="MsgChekBox()"> Sim 
+										   <input type = "checkbox" name = "nao" VALUE="nao" onBlur="MsgChekBox()"> Não 
+					<span class="style" style="color:red"/><div name="promocao" id="promocao"></div>
+												
+					</td>
+				</tr>
+				<tr>
+					<td>Obs:</td><td><TEXTAREA NAME="obs"  ROWS=9 COLS=100 onBlur="observacao()" placeholder="Insira algum comentario"></TEXTAREA></td></tr> 
+					<tr><td></td><td><input type = "submit"  name = "enviar" value = "Enviar" onclick = "verificarCPF(cadastro.cpf.value)"> 
+									 <input type = "button"  name = "valores" value = "Valores" onclick = "Valores()"/>
+					</td>
+				</tr>
+			
+			</table>
+		</form>
+
+	</body>
+	
+</html>
